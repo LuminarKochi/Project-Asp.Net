@@ -1,0 +1,444 @@
+﻿<Project ToolsVersion="15.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{DC57C071-B985-4C63-A934-E3ADCDF268E6}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>FruitKart</RootNamespace>
+    <AssemblyName>FruitKart</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <Use64BitIISExpress />
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="404.html" />
+    <Content Include="about.html" />
+    <Content Include="Add_Product.aspx" />
+    <Content Include="Admin_Home.aspx" />
+    <Content Include="Admin_Registration.aspx" />
+    <Content Include="Add_Category.aspx" />
+    <Content Include="Login_Page.aspx" />
+    <Content Include="assets\bootstrap\css\bootstrap-grid.css" />
+    <Content Include="assets\bootstrap\css\bootstrap-grid.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap-reboot.css" />
+    <Content Include="assets\bootstrap\css\bootstrap-reboot.min.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.css" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css" />
+    <Content Include="assets\bootstrap\js\bootstrap.bundle.js" />
+    <Content Include="assets\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="assets\bootstrap\js\bootstrap.js" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js" />
+    <Content Include="assets\css\all.min.css" />
+    <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\magnific-popup.css" />
+    <Content Include="assets\css\main.css" />
+    <Content Include="assets\css\meanmenu.min.css" />
+    <Content Include="assets\css\owl.carousel.css" />
+    <Content Include="assets\css\responsive.css" />
+    <Content Include="assets\css\scss\pages\_404.css" />
+    <Content Include="assets\img\1.jpg" />
+    <Content Include="assets\img\a.jpg" />
+    <Content Include="assets\img\abt.jpg" />
+    <Content Include="assets\img\avaters\avatar1.png" />
+    <Content Include="assets\img\avaters\avatar2.png" />
+    <Content Include="assets\img\avaters\avatar3.png" />
+    <Content Include="assets\img\breadcrumb-bg.jpg" />
+    <Content Include="assets\img\company-logos\1.png" />
+    <Content Include="assets\img\company-logos\2.png" />
+    <Content Include="assets\img\company-logos\3.png" />
+    <Content Include="assets\img\company-logos\4.png" />
+    <Content Include="assets\img\company-logos\5.png" />
+    <Content Include="assets\img\favicon.png" />
+    <Content Include="assets\img\feature-bg.jpg" />
+    <Content Include="assets\img\hero-bg-2.jpg" />
+    <Content Include="assets\img\hero-bg-3.jpg" />
+    <Content Include="assets\img\hero-bg.jpg" />
+    <Content Include="assets\img\homepage-bg-pattern.png" />
+    <Content Include="assets\img\latest-news\news-bg-1.jpg" />
+    <Content Include="assets\img\latest-news\news-bg-2.jpg" />
+    <Content Include="assets\img\latest-news\news-bg-3.jpg" />
+    <Content Include="assets\img\latest-news\news-bg-4.jpg" />
+    <Content Include="assets\img\latest-news\news-bg-5.jpg" />
+    <Content Include="assets\img\latest-news\news-bg-6.jpg" />
+    <Content Include="assets\img\logo.png" />
+    <Content Include="assets\img\products\product-img-1.jpg" />
+    <Content Include="assets\img\products\product-img-2.jpg" />
+    <Content Include="assets\img\products\product-img-3.jpg" />
+    <Content Include="assets\img\products\product-img-4.jpg" />
+    <Content Include="assets\img\products\product-img-5.jpg" />
+    <Content Include="assets\img\products\product-img-6.jpg" />
+    <Content Include="assets\img\team\team-1.jpg" />
+    <Content Include="assets\img\team\team-2.jpg" />
+    <Content Include="assets\img\team\team-3.jpg" />
+    <Content Include="assets\js\form-validate.js" />
+    <Content Include="assets\js\jquery-1.11.3.min.js" />
+    <Content Include="assets\js\jquery.countdown.js" />
+    <Content Include="assets\js\jquery.isotope-3.0.6.min.js" />
+    <Content Include="assets\js\jquery.magnific-popup.min.js" />
+    <Content Include="assets\js\jquery.meanmenu.min.js" />
+    <Content Include="assets\js\main.js" />
+    <Content Include="assets\js\owl.carousel.min.js" />
+    <Content Include="assets\js\sticker.js" />
+    <Content Include="assets\js\waypoints.js" />
+    <Content Include="assets\webfonts\fa-brands-400.svg" />
+    <Content Include="assets\webfonts\fa-regular-400.svg" />
+    <Content Include="assets\webfonts\fa-solid-900.svg" />
+    <Content Include="cart.html" />
+    <Content Include="checkout.html" />
+    <Content Include="contact.html" />
+    <Content Include="css1\bootstrap.min.css" />
+    <Content Include="css1\bootstrap\mixins\_border-radius.css" />
+    <Content Include="css1\bootstrap\mixins\_reset-text.css" />
+    <Content Include="css1\bootstrap\mixins\_screen-reader.css" />
+    <Content Include="css1\bootstrap\mixins\_text-hide.css" />
+    <Content Include="css1\bootstrap\mixins\_visibility.css" />
+    <Content Include="css1\bootstrap\utilities\_stretched-link.css" />
+    <Content Include="css1\bootstrap\_media.css" />
+    <Content Include="css1\style.css" />
+    <Content Include="images1\bg.jpg" />
+    <Content Include="index.html" />
+    <Content Include="index_2.html" />
+    <Content Include="js1\bootstrap.min.js" />
+    <Content Include="js1\jquery.min.js" />
+    <Content Include="js1\main.js" />
+    <Content Include="js1\popper.js" />
+    <Content Include="Loginindex.html" />
+    <Content Include="mail.php" />
+    <Content Include="news.html" />
+    <Content Include="shop.html" />
+    <Content Include="single-news.html" />
+    <Content Include="single-product.html" />
+    <Content Include="User_Registration.aspx" />
+    <Content Include="View_Category.aspx" />
+    <Content Include="View_Product.aspx" />
+    <Content Include="Web.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Add_Product.aspx.cs">
+      <DependentUpon>Add_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Product.aspx.designer.cs">
+      <DependentUpon>Add_Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Home.aspx.cs">
+      <DependentUpon>Admin_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Home.aspx.designer.cs">
+      <DependentUpon>Admin_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_Registration.aspx.cs">
+      <DependentUpon>Admin_Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Admin_Registration.aspx.designer.cs">
+      <DependentUpon>Admin_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Add_Category.aspx.cs">
+      <DependentUpon>Add_Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Add_Category.aspx.designer.cs">
+      <DependentUpon>Add_Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Login_Page.aspx.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Login_Page.aspx.designer.cs">
+      <DependentUpon>Login_Page.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ConnectionClass.cs" />
+    <Compile Include="LoginReg.Master.cs">
+      <DependentUpon>LoginReg.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LoginReg.Master.designer.cs">
+      <DependentUpon>LoginReg.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Main.Master.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Main.Master.designer.cs">
+      <DependentUpon>Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_Registration.aspx.cs">
+      <DependentUpon>User_Registration.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Registration.aspx.designer.cs">
+      <DependentUpon>User_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Category.aspx.cs">
+      <DependentUpon>View_Category.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Category.aspx.designer.cs">
+      <DependentUpon>View_Category.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="View_Product.aspx.cs">
+      <DependentUpon>View_Product.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="View_Product.aspx.designer.cs">
+      <DependentUpon>View_Product.aspx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="assets\bootstrap\css\bootstrap-grid.css.map" />
+    <Content Include="assets\bootstrap\css\bootstrap-grid.min.css.map" />
+    <Content Include="assets\bootstrap\css\bootstrap-reboot.css.map" />
+    <Content Include="assets\bootstrap\css\bootstrap-reboot.min.css.map" />
+    <Content Include="assets\bootstrap\css\bootstrap.css.map" />
+    <Content Include="assets\bootstrap\css\bootstrap.min.css.map" />
+    <Content Include="assets\bootstrap\js\bootstrap.bundle.js.map" />
+    <Content Include="assets\bootstrap\js\bootstrap.bundle.min.js.map" />
+    <Content Include="assets\bootstrap\js\bootstrap.js.map" />
+    <Content Include="assets\bootstrap\js\bootstrap.min.js.map" />
+    <Content Include="assets\css\scss\base\_mixins.scss" />
+    <Content Include="assets\css\scss\base\_typography.scss" />
+    <Content Include="assets\css\scss\base\_variables.scss" />
+    <Content Include="assets\css\scss\common\_common.scss" />
+    <Content Include="assets\css\scss\common\_footer.scss" />
+    <Content Include="assets\css\scss\common\_header.scss" />
+    <Content Include="assets\css\scss\common\_hover.scss" />
+    <Content Include="assets\css\scss\main.scss" />
+    <Content Include="assets\css\scss\pages\_404.scss" />
+    <Content Include="assets\css\scss\pages\_about.scss" />
+    <Content Include="assets\css\scss\pages\_contact.scss" />
+    <Content Include="assets\css\scss\pages\_shop.scss" />
+    <Content Include="assets\css\scss\prepros-6.config" />
+    <Content Include="assets\css\scss\sections\_about.scss" />
+    <Content Include="assets\css\scss\sections\_cart-banner.scss" />
+    <Content Include="assets\css\scss\sections\_hero.scss" />
+    <Content Include="assets\css\scss\sections\_list.scss" />
+    <Content Include="assets\css\scss\sections\_news.scss" />
+    <Content Include="assets\css\scss\sections\_shop-banner.scss" />
+    <Content Include="assets\css\scss\sections\_testimonials.scss" />
+    <Content Include="assets\webfonts\fa-brands-400.eot" />
+    <Content Include="assets\webfonts\fa-brands-400.eot_" />
+    <Content Include="assets\webfonts\fa-brands-400.ttf" />
+    <Content Include="assets\webfonts\fa-brands-400.woff" />
+    <Content Include="assets\webfonts\fa-brands-400.woff2" />
+    <Content Include="assets\webfonts\fa-regular-400.eot" />
+    <Content Include="assets\webfonts\fa-regular-400.eot_" />
+    <Content Include="assets\webfonts\fa-regular-400.ttf" />
+    <Content Include="assets\webfonts\fa-regular-400.woff" />
+    <Content Include="assets\webfonts\fa-regular-400.woff2" />
+    <Content Include="assets\webfonts\fa-solid-900.eot" />
+    <Content Include="assets\webfonts\fa-solid-900.eot_" />
+    <Content Include="assets\webfonts\fa-solid-900.ttf" />
+    <Content Include="assets\webfonts\fa-solid-900.woff" />
+    <Content Include="assets\webfonts\fa-solid-900.woff2" />
+    <Content Include="css1\.DS_Store" />
+    <Content Include="css1\bootstrap\.DS_Store" />
+    <Content Include="css1\bootstrap\mixins\.DS_Store" />
+    <Content Include="fonts1\.DS_Store" />
+    <Content Include="images1\.DS_Store" />
+    <Content Include="js1\.DS_Store" />
+    <Content Include="LoginReg.Master" />
+    <Content Include="Main.Master" />
+    <None Include="packages.config" />
+    <Content Include="scss1\.DS_Store" />
+    <Content Include="scss1\bootstrap\.DS_Store" />
+    <Content Include="scss1\bootstrap\bootstrap-grid.scss" />
+    <Content Include="scss1\bootstrap\bootstrap-reboot.scss" />
+    <Content Include="scss1\bootstrap\bootstrap.scss" />
+    <Content Include="scss1\bootstrap\mixins\_alert.scss" />
+    <Content Include="scss1\bootstrap\mixins\_background-variant.scss" />
+    <Content Include="scss1\bootstrap\mixins\_badge.scss" />
+    <Content Include="scss1\bootstrap\mixins\_border-radius.scss" />
+    <Content Include="scss1\bootstrap\mixins\_box-shadow.scss" />
+    <Content Include="scss1\bootstrap\mixins\_breakpoints.scss" />
+    <Content Include="scss1\bootstrap\mixins\_buttons.scss" />
+    <Content Include="scss1\bootstrap\mixins\_caret.scss" />
+    <Content Include="scss1\bootstrap\mixins\_clearfix.scss" />
+    <Content Include="scss1\bootstrap\mixins\_deprecate.scss" />
+    <Content Include="scss1\bootstrap\mixins\_float.scss" />
+    <Content Include="scss1\bootstrap\mixins\_forms.scss" />
+    <Content Include="scss1\bootstrap\mixins\_gradients.scss" />
+    <Content Include="scss1\bootstrap\mixins\_grid-framework.scss" />
+    <Content Include="scss1\bootstrap\mixins\_grid.scss" />
+    <Content Include="scss1\bootstrap\mixins\_hover.scss" />
+    <Content Include="scss1\bootstrap\mixins\_image.scss" />
+    <Content Include="scss1\bootstrap\mixins\_list-group.scss" />
+    <Content Include="scss1\bootstrap\mixins\_lists.scss" />
+    <Content Include="scss1\bootstrap\mixins\_nav-divider.scss" />
+    <Content Include="scss1\bootstrap\mixins\_pagination.scss" />
+    <Content Include="scss1\bootstrap\mixins\_reset-text.scss" />
+    <Content Include="scss1\bootstrap\mixins\_resize.scss" />
+    <Content Include="scss1\bootstrap\mixins\_screen-reader.scss" />
+    <Content Include="scss1\bootstrap\mixins\_size.scss" />
+    <Content Include="scss1\bootstrap\mixins\_table-row.scss" />
+    <Content Include="scss1\bootstrap\mixins\_text-emphasis.scss" />
+    <Content Include="scss1\bootstrap\mixins\_text-hide.scss" />
+    <Content Include="scss1\bootstrap\mixins\_text-truncate.scss" />
+    <Content Include="scss1\bootstrap\mixins\_transition.scss" />
+    <Content Include="scss1\bootstrap\mixins\_visibility.scss" />
+    <Content Include="scss1\bootstrap\utilities\_align.scss" />
+    <Content Include="scss1\bootstrap\utilities\_background.scss" />
+    <Content Include="scss1\bootstrap\utilities\_borders.scss" />
+    <Content Include="scss1\bootstrap\utilities\_clearfix.scss" />
+    <Content Include="scss1\bootstrap\utilities\_display.scss" />
+    <Content Include="scss1\bootstrap\utilities\_embed.scss" />
+    <Content Include="scss1\bootstrap\utilities\_flex.scss" />
+    <Content Include="scss1\bootstrap\utilities\_float.scss" />
+    <Content Include="scss1\bootstrap\utilities\_overflow.scss" />
+    <Content Include="scss1\bootstrap\utilities\_position.scss" />
+    <Content Include="scss1\bootstrap\utilities\_screenreaders.scss" />
+    <Content Include="scss1\bootstrap\utilities\_shadows.scss" />
+    <Content Include="scss1\bootstrap\utilities\_sizing.scss" />
+    <Content Include="scss1\bootstrap\utilities\_spacing.scss" />
+    <Content Include="scss1\bootstrap\utilities\_stretched-link.scss" />
+    <Content Include="scss1\bootstrap\utilities\_text.scss" />
+    <Content Include="scss1\bootstrap\utilities\_visibility.scss" />
+    <Content Include="scss1\bootstrap\vendor\_rfs.scss" />
+    <Content Include="scss1\bootstrap\_alert.scss" />
+    <Content Include="scss1\bootstrap\_badge.scss" />
+    <Content Include="scss1\bootstrap\_breadcrumb.scss" />
+    <Content Include="scss1\bootstrap\_button-group.scss" />
+    <Content Include="scss1\bootstrap\_buttons.scss" />
+    <Content Include="scss1\bootstrap\_card.scss" />
+    <Content Include="scss1\bootstrap\_carousel.scss" />
+    <Content Include="scss1\bootstrap\_close.scss" />
+    <Content Include="scss1\bootstrap\_code.scss" />
+    <Content Include="scss1\bootstrap\_custom-forms.scss" />
+    <Content Include="scss1\bootstrap\_dropdown.scss" />
+    <Content Include="scss1\bootstrap\_forms.scss" />
+    <Content Include="scss1\bootstrap\_functions.scss" />
+    <Content Include="scss1\bootstrap\_grid.scss" />
+    <Content Include="scss1\bootstrap\_images.scss" />
+    <Content Include="scss1\bootstrap\_input-group.scss" />
+    <Content Include="scss1\bootstrap\_jumbotron.scss" />
+    <Content Include="scss1\bootstrap\_list-group.scss" />
+    <Content Include="scss1\bootstrap\_media.scss" />
+    <Content Include="scss1\bootstrap\_mixins.scss" />
+    <Content Include="scss1\bootstrap\_modal.scss" />
+    <Content Include="scss1\bootstrap\_nav.scss" />
+    <Content Include="scss1\bootstrap\_navbar.scss" />
+    <Content Include="scss1\bootstrap\_pagination.scss" />
+    <Content Include="scss1\bootstrap\_popover.scss" />
+    <Content Include="scss1\bootstrap\_print.scss" />
+    <Content Include="scss1\bootstrap\_progress.scss" />
+    <Content Include="scss1\bootstrap\_reboot.scss" />
+    <Content Include="scss1\bootstrap\_root.scss" />
+    <Content Include="scss1\bootstrap\_spinners.scss" />
+    <Content Include="scss1\bootstrap\_tables.scss" />
+    <Content Include="scss1\bootstrap\_toasts.scss" />
+    <Content Include="scss1\bootstrap\_tooltip.scss" />
+    <Content Include="scss1\bootstrap\_transitions.scss" />
+    <Content Include="scss1\bootstrap\_type.scss" />
+    <Content Include="scss1\bootstrap\_utilities.scss" />
+    <Content Include="scss1\bootstrap\_variables.scss" />
+    <Content Include="scss1\style.scss" />
+    <None Include="Web.Debug.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+    <None Include="Web.Release.config">
+      <DependentUpon>Web.config</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="catimgnew\" />
+    <Folder Include="catimg\" />
+    <Folder Include="prodimgnew\" />
+    <Folder Include="prodimg\" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>63209</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:63209/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\build\net46\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
