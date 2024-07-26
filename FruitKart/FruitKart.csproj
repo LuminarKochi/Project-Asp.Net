@@ -23,6 +23,7 @@
     <UseGlobalApplicationHostFile />
     <NuGetPackageImportStamp>
     </NuGetPackageImportStamp>
+    <WcfConfigValidationEnabled>True</WcfConfigValidationEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -44,6 +45,8 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
@@ -73,6 +76,16 @@
     <Content Include="Admin_Home.aspx" />
     <Content Include="Admin_Registration.aspx" />
     <Content Include="Add_Category.aspx" />
+    <Content Include="Connected Services\ServiceBank\FruitKart.ServiceBank.CompositeType.datasource">
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Content>
+    <None Include="Connected Services\ServiceBank\Service.disco" />
+    <None Include="Connected Services\ServiceBank\configuration91.svcinfo" />
+    <None Include="Connected Services\ServiceBank\configuration.svcinfo" />
+    <None Include="Connected Services\ServiceBank\Reference.svcmap">
+      <Generator>WCF Proxy Generator</Generator>
+      <LastGenOutput>Reference.cs</LastGenOutput>
+    </None>
     <Content Include="Login_Page.aspx" />
     <Content Include="assets\bootstrap\css\bootstrap-grid.css" />
     <Content Include="assets\bootstrap\css\bootstrap-grid.min.css" />
@@ -164,10 +177,20 @@
     <Content Include="shop.html" />
     <Content Include="single-news.html" />
     <Content Include="single-product.html" />
+    <Content Include="User_AccountCreation.aspx" />
+    <Content Include="User_BillPage.aspx" />
+    <Content Include="User_Cart.aspx" />
+    <Content Include="User_Feedback.aspx" />
+    <Content Include="User_Home.aspx" />
+    <Content Include="User_InvoicePage.aspx" />
+    <Content Include="User_MyAccount.aspx" />
+    <Content Include="User_ProductView.aspx" />
     <Content Include="User_Registration.aspx" />
+    <Content Include="User_SingleProductView.aspx" />
     <Content Include="View_Category.aspx" />
     <Content Include="View_Product.aspx" />
     <Content Include="Web.config" />
+    <Content Include="WebForm1.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Add_Product.aspx.cs">
@@ -198,6 +221,11 @@
     <Compile Include="Add_Category.aspx.designer.cs">
       <DependentUpon>Add_Category.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Connected Services\ServiceBank\Reference.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Reference.svcmap</DependentUpon>
+    </Compile>
     <Compile Include="Login_Page.aspx.cs">
       <DependentUpon>Login_Page.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -221,12 +249,75 @@
       <DependentUpon>Main.Master</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="User_AccountCreation.aspx.cs">
+      <DependentUpon>User_AccountCreation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_AccountCreation.aspx.designer.cs">
+      <DependentUpon>User_AccountCreation.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_BillPage.aspx.cs">
+      <DependentUpon>User_BillPage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_BillPage.aspx.designer.cs">
+      <DependentUpon>User_BillPage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Cart.aspx.cs">
+      <DependentUpon>User_Cart.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Cart.aspx.designer.cs">
+      <DependentUpon>User_Cart.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Feedback.aspx.cs">
+      <DependentUpon>User_Feedback.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Feedback.aspx.designer.cs">
+      <DependentUpon>User_Feedback.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_Home.aspx.cs">
+      <DependentUpon>User_Home.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_Home.aspx.designer.cs">
+      <DependentUpon>User_Home.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_InvoicePage.aspx.cs">
+      <DependentUpon>User_InvoicePage.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_InvoicePage.aspx.designer.cs">
+      <DependentUpon>User_InvoicePage.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_MyAccount.aspx.cs">
+      <DependentUpon>User_MyAccount.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_MyAccount.aspx.designer.cs">
+      <DependentUpon>User_MyAccount.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_ProductView.aspx.cs">
+      <DependentUpon>User_ProductView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_ProductView.aspx.designer.cs">
+      <DependentUpon>User_ProductView.aspx</DependentUpon>
+    </Compile>
     <Compile Include="User_Registration.aspx.cs">
       <DependentUpon>User_Registration.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="User_Registration.aspx.designer.cs">
       <DependentUpon>User_Registration.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="User_SingleProductView.aspx.cs">
+      <DependentUpon>User_SingleProductView.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="User_SingleProductView.aspx.designer.cs">
+      <DependentUpon>User_SingleProductView.aspx</DependentUpon>
     </Compile>
     <Compile Include="View_Category.aspx.cs">
       <DependentUpon>View_Category.aspx</DependentUpon>
@@ -241,6 +332,13 @@
     </Compile>
     <Compile Include="View_Product.aspx.designer.cs">
       <DependentUpon>View_Product.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="WebForm1.aspx.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WebForm1.aspx.designer.cs">
+      <DependentUpon>WebForm1.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -297,6 +395,16 @@
     <Content Include="js1\.DS_Store" />
     <Content Include="LoginReg.Master" />
     <Content Include="Main.Master" />
+    <None Include="Connected Services\ServiceBank\Service.wsdl" />
+    <None Include="Connected Services\ServiceBank\Service.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceBank\Service1.xsd">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Connected Services\ServiceBank\Service2.xsd">
+      <SubType>Designer</SubType>
+    </None>
     <None Include="packages.config" />
     <Content Include="scss1\.DS_Store" />
     <Content Include="scss1\bootstrap\.DS_Store" />
@@ -402,6 +510,12 @@
     <Folder Include="catimg\" />
     <Folder Include="prodimgnew\" />
     <Folder Include="prodimg\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services\" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadataStorage Include="Connected Services\ServiceBank\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 
 namespace FruitKart
 {
@@ -30,14 +31,34 @@ namespace FruitKart
                 string roletype = clsobj.Fn_ExeScalar(str2);
                 if (roletype == "admin")
                 {
+                    FormsAuthentication.RedirectFromLoginPage(roletype, true);
                     Response.Redirect("Admin_Home.aspx");
+                }
+                else if(roletype=="user")
+                {
+                    FormsAuthentication.RedirectFromLoginPage(roletype, false);
+                    Response.Redirect("User_Home.aspx");
                 }
                 else
                 {
-                    Response.Redirect("index.html");
+                    Label1.Text = "Invalid User";
                 }
             }
+            else
+            {
+                Label1.Text = "Invalid User";
+            }
 
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("User_Registration.aspx");
+        }
+
+        protected void Button3_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("Admin_Registration.aspx");
         }
     }
 }

@@ -1,207 +1,158 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Main.Master" AutoEventWireup="true" CodeBehind="View_Product.aspx.cs" Inherits="FruitKart.View_Product" %>
+
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
-    <style>
+    <style type="text/css">
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #f8f9fa;
-            color: #343a40;
+            font-family: Arial, sans-serif;
         }
 
-        .header-label {
-            font-size: 28px;
-            font-weight: bold;
-            color: #006600; /* Updated color */
+        .center-text {
             text-align: center;
-            margin: 40px 0;
-            text-transform: uppercase;
-        }
-
-        .form-label {
-            font-size: 16px;
-            color: #495057;
-            margin-bottom: 5px;
             display: block;
-        }
-
-        .form-label-heading {
-            font-size: 20px;
-            color: #007bff; /* Blue color */
-            margin-bottom: 10px;
-        }
-
-        .form-control, .form-control-select {
             width: 100%;
-            padding: 10px;
-            margin: 5px 0 15px 0;
-            display: inline-block;
-            border: 1px solid #ced4da;
-            border-radius: 5px;
-            box-sizing: border-box;
-            transition: all 0.3s ease;
+            font-family: Impact, sans-serif;
+            font-size: 24px;
+            color: #006600;
+            margin-bottom: 20px;
         }
 
-        .form-control:focus, .form-control-select:focus {
-            border-color: #80bdff;
-            outline: 0;
-            box-shadow: 0 0 5px rgba(0, 123, 255, 0.25);
-        }
-
-        .form-row {
-            display: flex;
-            justify-content: space-between;
-            margin: 10px 0;
-        }
-
-        .form-column {
-            flex: 1;
-            margin: 0 10px;
-        }
-
-        .form-column:first-child {
-            margin-left: 0;
-        }
-
-        .form-column:last-child {
-            margin-right: 0;
-        }
-
-        .grid-view {
-            width: 100%;
-            margin: 40px 0;
-            border-collapse: collapse;
-            box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-            border-radius: 5px;
-            overflow: hidden;
-        }
-
-        .grid-view th, .grid-view td {
-            padding: 15px;
-            border: 1px solid #e9ecef;
-            text-align: left;
-        }
-
-        .grid-view th {
-            background-color: #006600; /* Updated color */
+        .gridview-header {
+            background-color: #006600;
             color: white;
-            text-transform: uppercase;
+            text-align: center;
         }
 
-        .grid-view tr:nth-child(even) {
+        .gridview-row {
             background-color: #f2f2f2;
         }
 
-        .grid-view tr:hover {
-            background-color: #f1f1f1;
+        .gridview-row-alt {
+            background-color: #e6e6e6;
         }
 
-        .image-thumbnail {
-            max-width: 100px;
-            max-height: 100px;
+        .gridview-row:hover {
+            background-color: #d4d4d4;
+        }
+
+        .gridview {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .gridview th, .gridview td {
+            padding: 10px;
+            border: 1px solid #ddd;
+        }
+
+        .image-size {
+            width: 100px;
+            height: auto;
+        }
+
+        .textbox-large {
+            width: 100%;
+            height: 100px;
+        }
+
+        .textbox-small {
+            width: 100%;
+        }
+
+        .dropdown {
+            width: 100%;
+        }
+
+        .form-label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 8px;
+            border: 1px solid #ccc;
             border-radius: 5px;
-        }
-
-        .action-buttons {
-            display: flex;
-            justify-content: space-between;
-        }
-
-        .btn {
-            padding: 10px 20px;
-            margin: 5px;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .btn-edit {
-            background-color: #17a2b8;
-            color: white;
-        }
-
-        .btn-delete {
-            background-color: #dc3545;
-            color: white;
-        }
-
-        .btn-edit:hover {
-            background-color: #138496;
-        }
-
-        .btn-delete:hover {
-            background-color: #c82333;
+            box-sizing: border-box;
         }
     </style>
 </asp:Content>
+
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <div class="header-label">
-        <asp:Label ID="Label1" runat="server" Text="View Products"></asp:Label>
+    <asp:Label ID="Label1" runat="server" CssClass="center-text" Text="VIEW PRODUCTS"></asp:Label>
+
+    <div class="form-group">
+        <asp:Label ID="Label2" runat="server" CssClass="form-label" Text="Select the Category"></asp:Label>
+        <asp:DropDownList ID="DropDownList1" runat="server" CssClass="form-control" AutoPostBack="True" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged"></asp:DropDownList>
     </div>
-    <div class="form-row">
-        <div class="form-column">
-            <asp:Label ID="Label2" runat="server" Text="Select Category" CssClass="form-label form-label-heading"></asp:Label>
-            <asp:DropDownList ID="DropDownList1" runat="server" AutoPostBack="True" CssClass="form-control-select" OnSelectedIndexChanged="DropDownList1_SelectedIndexChanged">
-            </asp:DropDownList>
-        </div>
-    </div>
-    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" DataKeyNames="product_id" CssClass="grid-view" OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating">
+
+    <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="False" CssClass="gridview"
+        OnRowCancelingEdit="GridView1_RowCancelingEdit" OnRowDeleting="GridView1_RowDeleting" 
+        OnRowEditing="GridView1_RowEditing" OnRowUpdating="GridView1_RowUpdating" DataKeyNames="product_id" AllowPaging="True" OnPageIndexChanging="GridView1_PageIndexChanging">
+        <HeaderStyle CssClass="gridview-header" />
+        <RowStyle CssClass="gridview-row" />
+        <AlternatingRowStyle CssClass="gridview-row-alt" />
         <Columns>
-            <asp:BoundField DataField="product_id" HeaderText="Product ID" ReadOnly="True" />
-            <asp:BoundField DataField="category_id" HeaderText="Category ID" ReadOnly="True" />
-            <asp:BoundField DataField="category_name" HeaderText="Category Name" ReadOnly="True" />
-            <asp:TemplateField HeaderText="Product Name">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox1" runat="server" Text='<%# Bind("product_name") %>' CssClass="form-control"></asp:TextBox>
-                </EditItemTemplate>
+            <asp:BoundField DataField="product_id" HeaderText="Product ID" ReadOnly="true" />
+            <asp:TemplateField HeaderText="Category Name">
                 <ItemTemplate>
-                    <asp:Label ID="Label3" runat="server" Text='<%# Eval("product_name") %>'></asp:Label>
+                    <asp:Label ID="LabelCategoryName" runat="server" Text='<%# Eval("category_name") %>'></asp:Label>
                 </ItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Product Name">
+                <ItemTemplate>
+                    <asp:Label ID="LabelProductName" runat="server" Text='<%# Eval("product_name") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBoxProductNameEdit" runat="server" Text='<%# Bind("product_name") %>' CssClass="textbox-small form-control"></asp:TextBox>
+                </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Product Image">
-                <EditItemTemplate>
-                    <asp:FileUpload ID="FileUpload1" runat="server" CssClass="form-control" />
-                    <asp:HiddenField ID="HiddenFieldImagePathEdit" runat="server" Value='<%# Bind("product_image") %>' />
-                </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Image ID="Image1" runat="server" ImageUrl='<%# Eval("product_image") %>' CssClass="image-thumbnail" />
+                    <asp:Image ID="ImageProduct" runat="server" CssClass="image-size" ImageUrl='<%# Eval("product_image") %>' />
                 </ItemTemplate>
-            </asp:TemplateField>
-            <asp:TemplateField HeaderText="Price">
                 <EditItemTemplate>
-                    <asp:TextBox ID="TextBox2" runat="server" Text='<%# Bind("product_price") %>' CssClass="form-control"></asp:TextBox>
+                    <asp:FileUpload ID="FileUploadProductImage" runat="server" CssClass="form-control" />
+                    <asp:HiddenField ID="HiddenFieldProductImagePathEdit" runat="server" Value='<%# Bind("product_image") %>' />
                 </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label4" runat="server" Text='<%# Eval("product_price") %>'></asp:Label>
-                </ItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Description">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox3" runat="server" Text='<%# Bind("product_description") %>' TextMode="MultiLine" CssClass="form-control"></asp:TextBox>
-                </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label5" runat="server" Text='<%# Eval("product_description") %>'></asp:Label>
+                    <asp:Label ID="LabelProductDescription" runat="server" Text='<%# Eval("product_description") %>'></asp:Label>
                 </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBoxProductDescEdit" runat="server" Text='<%# Bind("product_description") %>' CssClass="textbox-large form-control" TextMode="MultiLine"></asp:TextBox>
+                </EditItemTemplate>
+            </asp:TemplateField>
+            <asp:TemplateField HeaderText="Price">
+                <ItemTemplate>
+                    <asp:Label ID="LabelProductPrice" runat="server" Text='<%# Eval("product_price") %>'></asp:Label>
+                </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBoxProductPriceEdit" runat="server" Text='<%# Bind("product_price") %>' CssClass="textbox-small form-control"></asp:TextBox>
+                </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Stock">
-                <EditItemTemplate>
-                    <asp:TextBox ID="TextBox4" runat="server" Text='<%# Bind("stock") %>' CssClass="form-control"></asp:TextBox>
-                </EditItemTemplate>
                 <ItemTemplate>
-                    <asp:Label ID="Label6" runat="server" Text='<%# Eval("stock") %>'></asp:Label>
+                    <asp:Label ID="LabelProductStock" runat="server" Text='<%# Eval("stock") %>'></asp:Label>
                 </ItemTemplate>
+                <EditItemTemplate>
+                    <asp:TextBox ID="TextBoxProductStockEdit" runat="server" Text='<%# Bind("stock") %>' CssClass="textbox-small form-control"></asp:TextBox>
+                </EditItemTemplate>
             </asp:TemplateField>
             <asp:TemplateField HeaderText="Status">
+                <ItemTemplate>
+                    <asp:Label ID="LabelProductStatus" runat="server" Text='<%# Eval("product_status") %>'></asp:Label>
+                </ItemTemplate>
                 <EditItemTemplate>
-                    <asp:DropDownList ID="DropDownList2" runat="server" SelectedValue='<%# Bind("product_status") %>' CssClass="form-control-select">
+                    <asp:DropDownList ID="DropDownListProductStatusEdit" runat="server" SelectedValue='<%# Bind("product_status") %>' CssClass="dropdown form-control">
                         <asp:ListItem>Active</asp:ListItem>
                         <asp:ListItem>Inactive</asp:ListItem>
                     </asp:DropDownList>
                 </EditItemTemplate>
-                <ItemTemplate>
-                    <asp:Label ID="Label7" runat="server" Text='<%# Eval("product_status") %>'></asp:Label>
-                </ItemTemplate>
             </asp:TemplateField>
-            <asp:CommandField ShowDeleteButton="True" ShowEditButton="True" />
+            <asp:CommandField ShowEditButton="True" ShowDeleteButton="True" />
         </Columns>
     </asp:GridView>
 </asp:Content>

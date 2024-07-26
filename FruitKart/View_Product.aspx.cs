@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Data;
-using System.Web.UI;
 using System.Web.UI.WebControls;
 
 namespace FruitKart
@@ -14,14 +13,8 @@ namespace FruitKart
             if (!IsPostBack)
             {
                 Dropdowndata();
-                // No need to call GridData() here on initial load
+                GridData();
             }
-        }
-
-        protected void Page_Init(object sender, EventArgs e)
-        {
-            // Always bind GridView data during Page_Init to ensure events (like GridView events) are handled correctly
-            GridData();
         }
 
         public void GridData()
@@ -57,43 +50,53 @@ namespace FruitKart
         {
             int i = e.RowIndex;
             int getid = Convert.ToInt32(GridView1.DataKeys[i].Value);
-            TextBox productname = (TextBox)GridView1.Rows[i].FindControl("TextBox1");
-            FileUpload productimage = (FileUpload)GridView1.Rows[i].FindControl("FileUpload1");
-            HiddenField hiddenImagePath = (HiddenField)GridView1.Rows[i].FindControl("HiddenFieldImagePathEdit");
-            TextBox productprice = (TextBox)GridView1.Rows[i].FindControl("TextBox2");
-            TextBox productdescription = (TextBox)GridView1.Rows[i].FindControl("TextBox3");
-            TextBox productstock = (TextBox)GridView1.Rows[i].FindControl("TextBox4");
-            DropDownList productstatus = (DropDownList)GridView1.Rows[i].FindControl("DropDownList2");
+            TextBox productname = (TextBox)GridView1.Rows[i].FindControl("TextBoxProductNameEdit");
+            FileUpload productimage = (FileUpload)GridView1.Rows[i].FindControl("FileUploadProductImage");
+            HiddenField hiddenImagePath = (HiddenField)GridView1.Rows[i].FindControl("HiddenFieldProductImagePathEdit");
+            TextBox productprice = (TextBox)GridView1.Rows[i].FindControl("TextBoxProductPriceEdit");
+            TextBox productdesc = (TextBox)GridView1.Rows[i].FindControl("TextBoxProductDescEdit");
+            TextBox productstock = (TextBox)GridView1.Rows[i].FindControl("TextBoxProductStockEdit");
+            DropDownList productstatus = (DropDownList)GridView1.Rows[i].FindControl("DropDownListProductStatusEdit");
 
             string path = hiddenImagePath.Value;
             if (productimage.HasFile)
             {
+                // Save the uploaded file
                 path = "~/prodimgnew/" + productimage.FileName;
                 productimage.SaveAs(Server.MapPath(path));
             }
 
-            string strup = "UPDATE product_tb SET product_name = '" + productname.Text + "', product_image = '" + path + "', product_price = '" + productprice.Text + "', product_description = '" + productdescription.Text + "', stock = '" + productstock.Text + "', product_status = '" + productstatus.SelectedValue + "' WHERE product_id = " + getid;
+            string strup = "UPDATE product_tb SET product_name='" + productname.Text + "', product_image='" + path + "', product_price='" + productprice.Text + "', product_description='" + productdesc.Text + "', stock='" + productstock.Text + "', product_status='" + productstatus.SelectedValue + "' WHERE product_id=" + getid;
             clsobj.Fn_ExeNonQuery(strup);
             GridView1.EditIndex = -1;
             GridData();
         }
 
+        protected void GridView1_PageIndexChanging(object sender, GridViewPageEventArgs e)
+        {
+            GridView1.PageIndex = e.NewPageIndex;
+            GridData();
+        }
+
         public void Dropdowndata()
         {
+            // Populate the category dropdown
             string strsel = "SELECT category_id, category_name FROM category_tb";
             DataSet ds = clsobj.fn_ExeDataSet(strsel);
             DropDownList1.DataSource = ds;
             DropDownList1.DataTextField = "category_name";
             DropDownList1.DataValueField = "category_id";
             DropDownList1.DataBind();
+            // Add an initial "All Categories" option if needed
+            // DropDownList1.Items.Insert(0, new ListItem("- All Categories -", "0"));
         }
 
         protected void DropDownList1_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Load products based on selected category
-            string sel = "SELECT p.product_id, p.category_id, c.category_name, p.product_name, p.product_image, p.product_price, p.product_description, p.stock, p.product_status FROM product_tb p JOIN category_tb c ON p.category_id = c.category_id WHERE p.category_id = " + DropDownList1.SelectedValue;
+            // Filter products by selected category
+            string selectedCategoryId = DropDownList1.SelectedValue;
+            string sel = "SELECT p.product_id, p.category_id, c.category_name, p.product_name, p.product_image, p.product_price, p.product_description, p.stock, p.product_status FROM product_tb p JOIN category_tb c ON p.category_id = c.category_id WHERE p.category_id = " + selectedCategoryId;
             DataTable dt = clsobj.fn_ExeDataTable(sel);
-
             GridView1.DataSource = dt;
             GridView1.DataBind();
         }

@@ -39,6 +39,8 @@ namespace FruitKart
             if (i > 0)
             {
                 Label1.Text = "Product Added Successfully";
+                string script = "<script type=\"text/javascript\">setTimeout(function(){ window.location = 'Add_Product.aspx'; }, 1500);</script>";
+                ClientScript.RegisterStartupScript(this.GetType(), "Redirect", script);
             }
             else
             {
